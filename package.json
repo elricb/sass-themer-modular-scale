@@ -1,0 +1,19 @@
+{
+  "name": "@elricb/sass-themer-modular-scale",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sass-themer-modular-scale/index.scss",
+  "scripts": {
+    "test": "src/npm run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elricdesigns/sass-themer-modular-scale.git"
+  },
+  "author": "elricb",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/elricdesigns/sass-themer-modular-scale/issues"
+  },
+  "homepage": "https://github.com/elricdesigns/sass-themer-modular-scale#readme"
+}
