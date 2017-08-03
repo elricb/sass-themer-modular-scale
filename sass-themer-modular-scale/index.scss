@@ -1,0 +1,60 @@
+$modularscale: (
+    desktop-font: (
+        base: 0.75rem,
+        ratio: 1.18,
+    ),
+    tablet-font: (
+        base: 0.7rem,
+        ratio: 1.17,
+    ),
+    mobile-font: (
+        base: 0.65rem,
+        ratio: 1.16,
+    ),
+    desktop-pad: (
+        base: 0.3rem,
+        ratio: 1.18,
+    ),
+    tablet-pad: (
+        base: 0.2rem,
+        ratio: 1.17,
+    ),
+    mobile-pad: (
+        base: 0.1rem,
+        ratio: 1.16,
+    )
+);
+
+@mixin setModularScale($map) {
+    $modularscale: $map !global;
+}
+
+@mixin resetModularScale() {
+    $modularscale: () !global;
+}
+
+@mixin setModularScaleItem($name, $base, $ratio) {
+    $modularscale: map-merge($modularscale, ($name: (base: $base, ratio: $ratio))) !global;
+}
+
+@function pow($number, $exponent) {
+    $value: 1;
+
+    @if $exponent > 0 {
+        @for $i from 1 through $exponent {
+          $value: $value * $number;
+        }
+    }
+
+    @return $value;
+}
+
+@function modularscale($amount, $name) {
+    $scale: map-get($modularscale, $name);
+
+    @if ($amount < 0) {
+      @return (pow(map-get($scale, ratio), abs($amount)) * map-get($scale, base) * -1) + map-get($scale, base);
+    }
+
+    @return pow(map-get($scale, ratio), $amount) * map-get($scale, base);
+}

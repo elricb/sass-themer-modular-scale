@@ -4,7 +4,7 @@
   "description": "",
   "main": "sass-themer-modular-scale/index.scss",
   "scripts": {
-    "test": "src/npm run start"
+    "test": "public/index.html"
   },
   "repository": {
     "type": "git",
